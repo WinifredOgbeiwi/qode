@@ -30,6 +30,7 @@ export interface LinkProps {
 export interface HeadingProps {
   headingText: string;
   paragraphText:string;
+  color?:string;
 }
 
 export interface CardProps{

@@ -6,13 +6,13 @@ import { IMAGES } from "@/app/util/imports";
 const Features = () => {
   return (
     <section
-      className={` relative text-center  bg-cover bg-center`}
+      className={` relative text-center section py-5 bg-cover bg-center`}
       style={{ backgroundImage: `url('../../../background.png')` }}
     >
   <Heading
         headingText="Why Choose Our Tech Quiz App?"
         paragraphText="Our app is designed to make learning fun and engaging. Here is why you wll love it:"/>
-      <div className="grid grid-cols-3 grid-rows-2 gap-4 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 grid-rows-2 gap-4 items-center">
 
         <div>
           <h3>Variety of Quizzes</h3>
@@ -23,7 +23,7 @@ const Features = () => {
           </p>
         </div>
 
-        <div className="row-span-2">
+        <div className=" hidden md:block md:row-span-2">
           <Image src={IMAGES.Feature} alt="features"/>
         </div>
 
