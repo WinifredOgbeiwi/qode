@@ -9,7 +9,7 @@ import { IoIosArrowBack } from "react-icons/io";
 
 const LoginPage = () => {
   const router = useRouter();
-  const handlesRegister = () => {};
+  const handlesLogin= () => {};
   return (
     <section className=" ">
       <IoIosArrowBack
@@ -43,6 +43,7 @@ const LoginPage = () => {
             value=""
             type="text"
             id="email"
+            onchange={handlesLogin}
           />
 
           <Input
@@ -51,9 +52,10 @@ const LoginPage = () => {
             value=""
             type="password"
             id="password"
+            onchange={handlesLogin}
           />
           <Button
-            onclick={handlesRegister}
+            onclick={handlesLogin}
             width="w-full mt-6"
             variant="primary"
             label="Login"
