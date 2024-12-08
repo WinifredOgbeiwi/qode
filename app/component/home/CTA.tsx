@@ -1,6 +1,5 @@
 import React from 'react'
 import ButtonLink from '../common/ButtonLink'
-import Link from 'next/link'
 
 const CTA = () => {
   return (

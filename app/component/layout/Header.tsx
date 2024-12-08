@@ -23,7 +23,7 @@ const Header = () => {
         <ul
           className={`${pathname === ROUTES.CONTACT ? "text-color-500" : ""}`}
         >
-          <a href="/#contact"> Contact</a> 
+          <Link href="#contact"> Contact</Link> 
         </ul>
       </nav>
       <div className="flex gap-5">
