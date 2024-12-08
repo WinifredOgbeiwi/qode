@@ -6,11 +6,16 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import axios from "axios";
 import { IoIosArrowBack } from "react-icons/io";
 
 const RegisterPage = () => {
   const router = useRouter();
   const [selectedValue, setSelectedValue] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  // const [isPending, startTransition] = useTransition();
+
   const [userInfo, setuserInfo] = useState({
     firstname: "",
     lastname: "",
@@ -20,17 +25,39 @@ const RegisterPage = () => {
     confirmpassword: "",
   });
 
-  const handlesOnChange = (e) => {
+  const handlesOnChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     e.preventDefault();
-       if (e.target.id === "experience") {
-      setSelectedValue(e.target.id);
+    if (e.target.id === "experience") {
+      setSelectedValue(e.target.value);
     }
     setuserInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
-  console.log(userInfo);
-  const handlesRegister = () => {};
 
-  
+  console.log(userInfo);
+
+  const handlesRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await axios.post("/api/auth/register", {
+      email:userInfo.email,
+      password:userInfo.password,
+      });
+      console.log("User created:", response.data);
+      router.push("/dashboard");
+    } catch (error: any) {
+      throw new Error(
+        error.response?.data?.error || "An error occurred during signup"
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className=" ">
       <IoIosArrowBack
@@ -49,7 +76,6 @@ const RegisterPage = () => {
         <p className=" text-xl">
           Already have an account?
           <Link href={ROUTES.LOGIN} className="text-color-primary3">
-            
             Login
           </Link>
         </p>
@@ -80,13 +106,11 @@ const RegisterPage = () => {
             id="experience"
             defaultValue=""
             onChange={handlesOnChange}
-
             className={`block w-full  mx-auto px-3 duration-200 bg-color-white focus:border-color-primary6 py-3 sm:py-4 border-none rounded-lg outline-none mb-6 text-black  ${
               selectedValue === "" ? "text-gray-400" : "text-black"
             }`}
           >
             <option value="" disabled>
-              
               Please select an option
             </option>
             <option value="beginner">Beginner</option>
@@ -124,7 +148,8 @@ const RegisterPage = () => {
             onclick={handlesRegister}
             width="w-full my-6"
             variant="primary"
-            label="Register"
+            label={loading ? "Loading..." : "Register"}
+            disabled={loading} 
           />
         </form>
       </div>

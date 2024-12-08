@@ -12,7 +12,7 @@ export interface InputProps {
   type: 'text' | 'password';
   id: string;
   placeholder: string;
-  onchange?: (event: React.FormEvent<HTMLInputElement>) => void;
+onchange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
   value?: string;
   passwordVisibility?: boolean;
   setPasswordVisibility?: (value: boolean) => void;
@@ -35,4 +35,9 @@ export interface HeadingProps {
 export interface CardProps{
   background:string;
     image:string | StaticImageData; 
+}
+
+export interface AuthContextProps {
+  email:string;
+  password:string;
 }

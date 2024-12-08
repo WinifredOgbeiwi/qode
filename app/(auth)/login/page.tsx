@@ -2,14 +2,46 @@
 import Button from "@/app/component/common/Button";
 import Input from "@/app/component/common/Input";
 import { IMAGES, ROUTES } from "@/app/util/imports";
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { IoIosArrowBack } from "react-icons/io";
 
 const LoginPage = () => {
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [userInfo, setuserInfo] = useState({
+    email: "",
+    password: "",
+  });
+
   const router = useRouter();
-  const handlesLogin= () => {};
+  const handlesOnChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    e.preventDefault();
+    setuserInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+  const handlesLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+        setLoading(true);
+    setError(null);
+    try {
+      const response = await axios.post("/api/auth/login", {
+        email: userInfo.email,
+        password: userInfo.password,
+      });
+      console.log("User logged in:", response.data);
+      router.push("/dashboard");
+    } catch (error: any) {
+      throw new Error(error.response?.data?.error || "Invalid credentials");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <section className=" ">
       <IoIosArrowBack
@@ -26,11 +58,11 @@ const LoginPage = () => {
               alt="qode-logo"
               className="inline-block w-16"
             />
-          </span>{" "}
+          </span>
           account
         </p>
         <p className=" text-xl">
-          Don't have an account?{" "}
+          Don't have an account?
           <Link href={ROUTES.REGISTER} className="text-color-primary3">
             Register
           </Link>
@@ -40,19 +72,19 @@ const LoginPage = () => {
           <Input
             label="Email"
             placeholder="Email"
-            value=""
+            value={userInfo.email}
             type="text"
             id="email"
-            onchange={handlesLogin}
+            onchange={handlesOnChange}
           />
 
           <Input
             label="Password"
             placeholder="********"
-            value=""
+            value={userInfo.password}
             type="password"
             id="password"
-            onchange={handlesLogin}
+            onchange={handlesOnChange}
           />
           <Button
             onclick={handlesLogin}
