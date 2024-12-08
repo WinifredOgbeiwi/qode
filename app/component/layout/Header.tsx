@@ -8,11 +8,11 @@ import Link from "next/link";
 const Header = () => {
   const pathname = usePathname();
   return (
-    <header className="flex justify-between items-center my-5 ">
+    <header className="flex justify-between items-center my-7 ">
       <div className="w-28">
         <Image src={IMAGES.Logo} alt="logo" />
       </div>
-      <nav className="flex gap-10">
+      <nav className="hidden md:flex gap-10">
         <ul className={`${pathname === ROUTES.HOME ? "text-color-500" : ""}`}>
          <Link href="/">Home</Link>  
         </ul>
@@ -26,7 +26,7 @@ const Header = () => {
           <Link href="#contact"> Contact</Link> 
         </ul>
       </nav>
-      <div className="flex gap-5">
+      <div className=" hidden md:flex gap-5 ">
         <ButtonLink href={ROUTES.LOGIN} label="Login" variant="secondary" />
         <ButtonLink href={ROUTES.REGISTER} label="Register" variant="primary" />
       </div>

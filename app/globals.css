@@ -19,6 +19,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+    transition-duration: 0.5s;
+      scroll-behavior: smooth;
   /* outline: 2px solid red; */
 }
 body{
