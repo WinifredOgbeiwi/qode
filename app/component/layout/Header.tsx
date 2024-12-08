@@ -1,6 +1,5 @@
 "use client";
 import Image from "next/image";
-import logo from "../../../public/logo.png";
 import ButtonLink from "../common/ButtonLink";
 import { IMAGES, ROUTES } from "@/app/util/imports";
 import { usePathname } from "next/navigation";

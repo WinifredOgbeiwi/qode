@@ -90,7 +90,7 @@ const LoginPage = () => {
             onclick={handlesLogin}
             width="w-full mt-6"
             variant="primary"
-            label="Login"
+            label={loading ? "loading...":"Login"}
           />
           <Link
             href={ROUTES.FORGOT_PASSWORD}

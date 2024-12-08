@@ -1,8 +1,6 @@
 import React from "react";
 import ButtonLink from "../common/ButtonLink";
-import Card from "./Card";
 import { Afacad } from "next/font/google";
-import { IMAGES } from "@/app/util/imports";
 const AfacadFont = Afacad({
   subsets: ["latin"],
   display: "swap",
