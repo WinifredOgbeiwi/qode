@@ -8,10 +8,10 @@ const AfacadFont = Afacad({
 const Hero = () => {
   return (
     <div
-      className={`${AfacadFont.className} relative text-center pb-32 flex flex-col items-center bg-cover bg-center`}
+      className={`${AfacadFont.className} px-[1rem] relative text-center pb-32 flex flex-col items-center bg-cover bg-center`}
       style={{ backgroundImage: `url('../../../container.png')` }}
     >
-      <div className="w-1/2 mt-24 ">
+      <div className="w-full md:w-1/2 mt-24 ">
         <h1 className={`text-7xl font-semibold`}>
           Test Your Knowledge, <br />
           Challenge Your Mind!
