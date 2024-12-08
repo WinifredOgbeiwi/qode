@@ -13,7 +13,7 @@ export function AuthLayout({
   return (
     <>
       <div
-        className={`flex flex-col ${
+        className={`flex flex-col bg-color-primary8  ${
           left.includes(route) ? "md:flex-row" : "md:flex-row-reverse"
         } min-h-screen`}
       >
@@ -23,7 +23,7 @@ export function AuthLayout({
         >
           <Image src={IMAGES.BrainBoy} alt="Logo" className="" />
         </div>
-        <main className="w-[90%] m-auto flex flex-col  justify-center md:mx-10  md:justify-start md:w-[50%] mt-20">
+        <main className="w-[90%] m-auto flex flex-col justify-center md:mx-10  md:justify-start md:w-[50%] mt-20">
           {children}
         </main>
       
