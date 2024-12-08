@@ -13,3 +13,4 @@ const HomeLayout = ({children}: Readonly<{children: React.ReactNode;}>) => {
      
   );
 }
+export default HomeLayout;
