@@ -1,5 +1,5 @@
 import { InputProps } from "@/types";
-import { FaEye, FaEyeSlash } from "react-icons/fa";
+// import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Input: React.FC<InputProps> = ({
   label,
