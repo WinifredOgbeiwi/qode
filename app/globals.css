@@ -2,20 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root{
+--white: #f8f5ff;
+--primary1: #220033;   /* Deepest purple */
+--primary2: #3a0056;   /* Very dark purple */
+--primary3: #560078;   /* Dark purple */
+--primary4: #7a00a6;   /* Rich purple */
+--primary5: #a359cc;   /* Vivid purple */
+--primary6: #bb78e6;   /* Light vivid purple */
+--primary7: #d5a9f2;   /* Soft lavender */
+--primary8: #eddcfb;   /* Pale lavender */
+--primary9: #f6efff;   /* Almost white lavender */
+
+}
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 2px solid red; */
+}
+body{
+background-color: var(--white);
+}
+header, .section{
+    margin-left: 5rem;
+    margin-right: 5rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@media (max-width:768px) {
+  header, .section{
+    margin-left: 1rem;
+    margin-right: 1rem;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.rotate-animation {
+  animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+   0% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+  }
+  100% {
+    transform: rotateY(360deg);
+  }
 }
