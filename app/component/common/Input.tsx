@@ -8,8 +8,8 @@ const Input: React.FC<InputProps> = ({
   id,
   onchange,
   value,
-  passwordVisibility,
-  setPasswordVisibility,
+  // passwordVisibility,
+  // setPasswordVisibility,
   disabled,
 }) => {
   return (
@@ -31,14 +31,14 @@ const Input: React.FC<InputProps> = ({
         disabled={disabled}
       />
 
-      {id === "password" && (
+      {/* {id === "password" && (
         <div
           className="absolute right-2 top-[50px] hover:cursor-pointer"
           onClick={() => setPasswordVisibility(!passwordVisibility)}
         >
           {!passwordVisibility ? <FaEye /> : <FaEyeSlash />}
         </div>
-      )}
+      )} */}
     </div>
   );
 };
