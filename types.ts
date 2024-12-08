@@ -2,7 +2,7 @@ import { StaticImageData } from "next/image";
 
 export interface ButtonProps {
     label: string;
-    onclick:() => void;
+  onclick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
     variant: 'primary' | 'secondary';
     width?: string;
 
@@ -20,7 +20,7 @@ onchange?: (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
 
 export interface LinkProps {
-    href?: string;
+    href: string;
     label: string;
     variant:'primary' | 'secondary';
     width?: string;

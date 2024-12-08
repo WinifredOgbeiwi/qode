@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
-import { IoIosArrowBack } from "react-icons/io";
+// import { IoIosArrowBack } from "react-icons/io";
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -64,10 +64,10 @@ const RegisterPage = () => {
 
   return (
     <section className=" ">
-      <IoIosArrowBack
+      {/* <IoIosArrowBack
         onClick={() => router.push("/")}
         className="font-extrabold text-5xl absolute top-2 left-2  cursor-pointer"
-      />
+      /> */}
       <div className=" flex flex-col gap-4">
         <h2 className="text-5xl font-bold">
           Welcome to
@@ -153,7 +153,6 @@ const RegisterPage = () => {
             width="w-full my-6"
             variant="primary"
             label={loading ? "Loading..." : "Register"}
-            disabled={loading} 
           />
               <p className="text-red-400">{error}</p>
         </form>

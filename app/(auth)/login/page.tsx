@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
-import { IoIosArrowBack } from "react-icons/io";
+// import { IoIosArrowBack } from "react-icons/io";
 
 const LoginPage = () => {
   const [error, setError] = useState(null);
@@ -52,10 +52,10 @@ const LoginPage = () => {
 
   return (
     <section className=" ">
-      <IoIosArrowBack
+      {/* <IoIosArrowBack
         onClick={() => router.push("/")}
         className="font-extrabold text-5xl absolute top-2 left-2 "
-      />
+      /> */}
       <div className="lg:mx-16 flex flex-col gap-4">
         <h2 className="text-5xl font-bold">Welcome Back</h2>
         <p className="text-xl">
