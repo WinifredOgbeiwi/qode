@@ -1,7 +1,7 @@
 import { LinkProps } from "@/types";
 import Link from "next/link";
 
-const ButtonLink: React.FC<LinkProps> = ({ href, label, variant, width,onclick }) => {
+const ButtonLink: React.FC<LinkProps> = ({ href, label, variant, width }) => {
   return (
   <Link
       href={href}

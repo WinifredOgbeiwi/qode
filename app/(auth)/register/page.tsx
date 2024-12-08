@@ -49,11 +49,15 @@ const RegisterPage = () => {
       });
       console.log("User created:", response.data);
       router.push("/dashboard");
-    } catch (error: any) {
-      throw new Error(
-        error.response?.data?.error || "An error occurred during signup"
-      );
-    } finally {
+    } catch (error) {
+  if (axios.isAxiosError(error)) {
+
+    throw new Error(error.response?.data?.error || "Invalid credentials");
+  } else {
+
+    throw new Error("An unexpected error occurred");
+  }
+} finally {
       setLoading(false);
     }
   };
@@ -151,6 +155,7 @@ const RegisterPage = () => {
             label={loading ? "Loading..." : "Register"}
             disabled={loading} 
           />
+              <p className="text-red-400">{error}</p>
         </form>
       </div>
     </section>

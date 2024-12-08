@@ -14,10 +14,10 @@ const Header = () => {
       </div>
       <nav className="flex gap-10">
         <ul className={`${pathname === ROUTES.HOME ? "text-color-500" : ""}`}>
-         <Link href="/#about">Home</Link>  
+         <Link href="/">Home</Link>  
         </ul>
         <ul className={`${pathname === ROUTES.ABOUT ? "text-color-500" : ""}`}>
-          <a href="/#about"> About</a>
+          <Link href="#about"> About</Link>
         
         </ul>
         <ul

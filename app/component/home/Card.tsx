@@ -1,4 +1,3 @@
-import { IMAGES } from "@/app/util/imports"
 import { CardProps } from "@/types"
 import Image from "next/image"
 

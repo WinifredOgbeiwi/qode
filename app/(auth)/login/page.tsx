@@ -28,6 +28,7 @@ const LoginPage = () => {
     e.preventDefault();
         setLoading(true);
     setError(null);
+
     try {
       const response = await axios.post("/api/auth/login", {
         email: userInfo.email,
@@ -35,10 +36,17 @@ const LoginPage = () => {
       });
       console.log("User logged in:", response.data);
       router.push("/dashboard");
-    } catch (error: any) {
-      throw new Error(error.response?.data?.error || "Invalid credentials");
-    } finally {
+    } catch (error) {
+  if (axios.isAxiosError(error)) {
+
+    throw new Error(error.response?.data?.error || "Invalid credentials");
+  } else {
+
+    throw new Error("An unexpected error occurred");
+  }
+} finally {
       setLoading(false);
+
     }
   };
 
@@ -62,9 +70,9 @@ const LoginPage = () => {
           account
         </p>
         <p className=" text-xl">
-          Don't have an account?
+          Don&#39;t have an account?
           <Link href={ROUTES.REGISTER} className="text-color-primary3">
-            Register
+             Register
           </Link>
         </p>
 
@@ -98,6 +106,7 @@ const LoginPage = () => {
           >
             Forgot Password?
           </Link>
+          <p className="text-red-400">{error}</p>
         </form>
       </div>
     </section>
