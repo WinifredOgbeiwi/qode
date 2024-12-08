@@ -3,11 +3,11 @@ import Image from "next/image";
 import { IMAGES, ROUTES } from "../util/imports";
 import { usePathname } from "next/navigation";
 
-export function AuthLayout({
+const AuthLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   const route = usePathname();
   const left = [ROUTES.REGISTER, ROUTES.CONFIRM_EMAIL];
   return (
