@@ -71,8 +71,7 @@ const LoginPage = () => {
         </p>
         <p className=" text-xl">
           Don&#39;t have an account?
-          <Link href={ROUTES.REGISTER} className="text-color-primary3">
-             Register
+          <Link href={ROUTES.REGISTER} className="text-color-primary3"> Register
           </Link>
         </p>
 

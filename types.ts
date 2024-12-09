@@ -42,3 +42,12 @@ export interface AuthContextProps {
   email:string;
   password:string;
 }
+
+export interface AuthDBProps {
+  email:string;
+  password:string;
+    firstname:string;
+  lastname:string;
+    experience:string;
+  uid:string;
+}

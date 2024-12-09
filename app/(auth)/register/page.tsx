@@ -35,7 +35,6 @@ const RegisterPage = () => {
     setuserInfo((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
-  console.log(userInfo);
 
   const handlesRegister = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,12 +42,26 @@ const RegisterPage = () => {
     setError(null);
 
     try {
+      
       const response = await axios.post("/api/auth/register", {
       email:userInfo.email,
       password:userInfo.password,
       });
-      console.log("User created:", response.data);
-      router.push("/dashboard");
+
+  console.log(response.data.user)
+
+
+   const { uid } = response.data.user; 
+
+      await axios.post("/api/database/users", {
+        uid,
+        email: userInfo.email,
+        firstname: userInfo.firstname,
+        lastname: userInfo.lastname,
+        experience: userInfo.experience,
+      });
+
+      router.push(ROUTES.CONFIRM_EMAIL);
     } catch (error) {
   if (axios.isAxiosError(error)) {
 
@@ -79,8 +92,7 @@ const RegisterPage = () => {
         </h2>
         <p className=" text-xl">
           Already have an account?
-          <Link href={ROUTES.LOGIN} className="text-color-primary3">
-            Login
+          <Link href={ROUTES.LOGIN} className="text-color-primary3"> Login
           </Link>
         </p>
 
